@@ -1,4 +1,4 @@
-package tekup.student.rest.data;
+package com.rest.restaurant.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
