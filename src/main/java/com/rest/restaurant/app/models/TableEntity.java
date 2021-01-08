@@ -34,4 +34,11 @@ public class TableEntity {
 	
 	@OneToMany(mappedBy = "table",cascade = CascadeType.REMOVE )
 	private List<Ticket> tickets;
+	
+	/*public void setTypeDTO(TableTypeDTO type) {
+		ModelMapper mapper=new ModelMapper();
+		this.type=mapper.map(type, TableType.class);
+	}*/
+
+	
 }
