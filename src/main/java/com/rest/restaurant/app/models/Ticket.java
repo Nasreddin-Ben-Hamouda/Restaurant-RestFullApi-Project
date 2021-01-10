@@ -3,9 +3,12 @@ package com.rest.restaurant.app.models;
 import java.time.LocalDateTime;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +17,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
+
+import com.rest.restaurant.app.dto.MetDTO;
+import com.rest.restaurant.app.util.MetUtil;
+
 import lombok.Data;
 
 @Data
@@ -25,6 +36,7 @@ public class Ticket {
 	private long number;
 	
 	@Column(name="created_at",nullable = false)
+	@CreationTimestamp
 	private LocalDateTime createdAt;
 	
 	@Column(name="cover_number")
@@ -40,13 +52,10 @@ public class Ticket {
     @JoinColumn(name="table_id", nullable=false)
 	private TableEntity table;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tickets_mets",
 	joinColumns = @JoinColumn(name="ticket_id"),
     inverseJoinColumns = @JoinColumn(name = "met_id"))
 	private List<Met> mets;
 	
-	
-	
-
 }

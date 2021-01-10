@@ -32,7 +32,7 @@ public class TableController {
 	private ModelMapper mapper;
 	
 	@GetMapping("/all")
-	public List<TableDTO> getAllTableType(){
+	public List<TableDTO> getAllTables(){
 		
 		return tableService.findAll()
 						   .stream()
@@ -40,9 +40,9 @@ public class TableController {
 						   .collect(Collectors.toList());
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<?> getTableById(@PathVariable long id) {
-		TableEntity table=tableService.finById(id);
+	@GetMapping("/{number}")
+	public ResponseEntity<?> getTableById(@PathVariable long number) {
+		TableEntity table=tableService.finById(number);
 		if(table!=null)
 			return new ResponseEntity<TableDTO>(mapper.map(table, TableDTO.class),HttpStatus.OK);
 		else
