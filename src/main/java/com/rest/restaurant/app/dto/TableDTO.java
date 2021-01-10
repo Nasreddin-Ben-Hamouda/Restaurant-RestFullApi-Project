@@ -26,6 +26,5 @@ public class TableDTO
 		ModelMapper mapper=new ModelMapper();
 		this.typeDTO=mapper.map(type, TableTypeDTO.class);
 	}
-
-
+	
 }

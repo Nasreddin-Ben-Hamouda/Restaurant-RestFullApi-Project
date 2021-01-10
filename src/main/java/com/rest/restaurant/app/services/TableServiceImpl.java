@@ -22,7 +22,8 @@ public class TableServiceImpl implements TableService {
 
 	@Override
 	public TableEntity save(TableEntity table) {
-		return tableRepo.save(table);
+		TableEntity newTable=tableRepo.save(table);
+		return this.finById(newTable.getNumber());
 	}
 
 	@Override
@@ -40,7 +41,8 @@ public class TableServiceImpl implements TableService {
 		if(oldTable!=null) {
 			oldTable.setCoverNumber(table.getCoverNumber());
 			oldTable.setType(table.getType());
-			return oldTable;
+			return tableRepo.save(oldTable);
+		
 		}
 		return null;
 	}

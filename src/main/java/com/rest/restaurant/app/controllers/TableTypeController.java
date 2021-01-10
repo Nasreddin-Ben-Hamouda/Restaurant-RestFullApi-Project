@@ -32,7 +32,7 @@ public class TableTypeController {
 	private ModelMapper mapper;
 	
 	@GetMapping("/all")
-	public List<TableTypeDTO> getAllTableType(){
+	public List<TableTypeDTO> getAllTablesTypes(){
 		
 		return typeService.findAll()
 						   .stream()
