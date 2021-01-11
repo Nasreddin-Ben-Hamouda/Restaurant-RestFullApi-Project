@@ -74,4 +74,9 @@ public class TableController {
 			return new ResponseEntity<String>("table not found",HttpStatus.NOT_FOUND);
 
 	}
+	
+	@GetMapping("/mostTable")
+	public TableDTO getMostBookedTable() {
+		return mapper.map(tableService.getMostBookedTable(), TableDTO.class);
+	}
 }

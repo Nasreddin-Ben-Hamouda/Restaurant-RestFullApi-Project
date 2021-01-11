@@ -1,9 +1,15 @@
 package com.rest.restaurant.app.services;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import com.rest.restaurant.app.dto.PeriodRequest;
+import com.rest.restaurant.app.dto.MostBuyableMainCourseResponse;
 import com.rest.restaurant.app.models.Met;
 import com.rest.restaurant.app.repositories.MetRepository;
 
@@ -49,4 +55,16 @@ public class MetServiceImpl implements MetService {
 		}
 		return false;
 	}
+
+	@Override
+	public MostBuyableMainCourseResponse getMostBuyableMainCourse(PeriodRequest requset) {
+		Pageable getFirstMet = PageRequest.of(0, 1);
+		List<MostBuyableMainCourseResponse> mets=metRepo.mostBuyableMainCourses(requset.getFrom().atStartOfDay(),requset.getTo().atTime(LocalTime.MAX),getFirstMet);
+		if(mets.size()>0)
+			return mets.get(0);
+		else
+			return null;
+	}
+
+
 }

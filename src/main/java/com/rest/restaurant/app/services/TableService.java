@@ -10,5 +10,6 @@ public interface TableService {
 	TableEntity finById(long id);
 	TableEntity edit(TableEntity table,long id);
 	Boolean delete(long id);
+	TableEntity getMostBookedTable();
 
 }

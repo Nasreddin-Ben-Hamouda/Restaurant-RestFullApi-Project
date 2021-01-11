@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.restaurant.app.dto.ClientDTO;
 import com.rest.restaurant.app.models.Client;
+import com.rest.restaurant.app.repositories.ClientRepository;
 import com.rest.restaurant.app.services.ClientService;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +29,7 @@ import lombok.AllArgsConstructor;
 public class ClientController {
 	private ClientService clientService;
 	private ModelMapper mapper;
+	private ClientRepository rep;
 	
 	@GetMapping("/all")
 	public List<ClientDTO> getAllClients(){
@@ -72,5 +73,14 @@ public class ClientController {
 		else
 			return new ResponseEntity<String>("client not found",HttpStatus.NOT_FOUND);
 
+	}
+	@GetMapping("/mostClient")
+	public ClientDTO getMostLoyalClient() {
+		return mapper.map(clientService.getMostLoyalClient(), ClientDTO.class);
+	}
+	
+	@GetMapping("/mostDay/{id}")
+	public String getMostBookedDayByClient(@PathVariable long id) {
+		return rep.mostBookedDayByClient(id);
 	}
 }

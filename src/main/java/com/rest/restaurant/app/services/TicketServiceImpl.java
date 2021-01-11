@@ -1,10 +1,13 @@
 package com.rest.restaurant.app.services;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+import com.rest.restaurant.app.dto.PeriodRequest;
+import com.rest.restaurant.app.dto.RecipePerDayResponse;
+import com.rest.restaurant.app.dto.RecipePerMonthResponse;
 import com.rest.restaurant.app.models.Client;
 import com.rest.restaurant.app.models.Met;
 import com.rest.restaurant.app.models.TableEntity;
@@ -131,6 +134,21 @@ public class TicketServiceImpl implements TicketService{
 			return table.getTickets();
 		}
 		return null;
+	}
+
+	@Override
+	public List<RecipePerDayResponse> getRecipePerDay() {
+		return ticketRepo.getRecipePerDay();
+	}
+
+	@Override
+	public List<RecipePerMonthResponse> getRecipePerMonth() {
+		return ticketRepo.getRecipePerMonth();
+	}
+
+	@Override
+	public double getRecipePerPeriod(PeriodRequest request) {
+		return ticketRepo.getRecipePerPeriod(request.getFrom().atStartOfDay(),request.getTo().atTime(LocalTime.MAX));
 	}
 
 }
