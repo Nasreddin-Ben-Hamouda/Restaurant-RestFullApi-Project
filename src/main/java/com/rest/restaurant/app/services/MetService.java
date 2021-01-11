@@ -1,6 +1,9 @@
 package com.rest.restaurant.app.services;
 
 import java.util.List;
+
+import com.rest.restaurant.app.dto.PeriodRequest;
+import com.rest.restaurant.app.dto.MostBuyableMainCourseResponse;
 import com.rest.restaurant.app.models.Met;
 
 public interface MetService {
@@ -9,4 +12,6 @@ public interface MetService {
 	Met finById(long id);
 	Met edit(Met met,int type,long id);
 	Boolean delete(long id);
+	MostBuyableMainCourseResponse getMostBuyableMainCourse(PeriodRequest requset);
+	
 }

@@ -10,4 +10,5 @@ public interface ClientService {
 	Client finById(long id);
 	Client edit(Client table,long id);
 	Boolean delete(long id);
+	Client getMostLoyalClient();
 }

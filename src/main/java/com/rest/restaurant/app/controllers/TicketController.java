@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.restaurant.app.dto.MetDTO;
-import com.rest.restaurant.app.dto.TableDTO;
+import com.rest.restaurant.app.dto.PeriodRequest;
+import com.rest.restaurant.app.dto.RecipePerDayResponse;
+import com.rest.restaurant.app.dto.RecipePerMonthResponse;
 import com.rest.restaurant.app.dto.TicketDTO;
 import com.rest.restaurant.app.models.Met;
 import com.rest.restaurant.app.models.Ticket;
+import com.rest.restaurant.app.repositories.TicketRepositoty;
+import com.rest.restaurant.app.dto.RecipePerWeekResponse;
 import com.rest.restaurant.app.services.TicketService;
 
 import lombok.AllArgsConstructor;
@@ -31,6 +35,7 @@ import lombok.AllArgsConstructor;
 public class TicketController {
 	private TicketService ticketService;
 	private ModelMapper mapper;
+	private TicketRepositoty rep;
 	
 	@GetMapping("/all")
 	public List<TicketDTO> getAllTickets(){
@@ -106,4 +111,22 @@ public class TicketController {
 					   })
 				   .collect(Collectors.toList());
 	}
+	
+	@GetMapping("/recipePerDay")
+	public List<RecipePerDayResponse> getRecipePerDay() {
+		return ticketService.getRecipePerDay();
+	}
+	@GetMapping("/recipePerMonth")
+	public List<RecipePerMonthResponse> getRecipePerMonth() {
+		return ticketService.getRecipePerMonth();
+	}
+	@PostMapping("/recipePerPeriod")
+	public double getRecipePerPeriod(@RequestBody PeriodRequest request) {
+		return ticketService.getRecipePerPeriod(request);
+	}
+	@GetMapping("/recipePerWeek")
+	public List<RecipePerWeekResponse> getRecipePerWeek() {
+		return rep.getRecipePerWeek();
+	}
+	
 }

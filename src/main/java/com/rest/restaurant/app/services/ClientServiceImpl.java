@@ -57,4 +57,13 @@ public class ClientServiceImpl implements ClientService {
 		return false;
 	}
 
+	@Override
+	public Client getMostLoyalClient() {
+		List<Client> clients=clientRepo.mostLoyalClients();
+		if(clients.size()>0)
+			return clients.get(0);
+		else
+			return null;
+	}
+
 }

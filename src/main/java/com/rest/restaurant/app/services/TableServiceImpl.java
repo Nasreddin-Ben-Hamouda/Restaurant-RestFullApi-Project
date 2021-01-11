@@ -57,4 +57,13 @@ public class TableServiceImpl implements TableService {
 		return false;
 	}
 
+	@Override
+	public TableEntity getMostBookedTable() {
+		List<TableEntity> tables=tableRepo.mostBookedTables();
+		if(tables.size()>0)
+			return tables.get(0);
+		else
+			return null;
+	}
+
 }

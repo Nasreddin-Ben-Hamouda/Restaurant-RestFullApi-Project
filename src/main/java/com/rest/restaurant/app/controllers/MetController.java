@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.restaurant.app.dto.MetDTO;
+import com.rest.restaurant.app.dto.PeriodRequest;
+import com.rest.restaurant.app.dto.MostBuyableMainCourseResponse;
 import com.rest.restaurant.app.models.Met;
 import com.rest.restaurant.app.services.MetService;
 import com.rest.restaurant.app.util.MetUtil;
@@ -83,6 +85,11 @@ public class MetController {
 		else
 			return new ResponseEntity<String>("Met not found",HttpStatus.NOT_FOUND);
 
+	}
+	
+	@PostMapping("/mostMet")
+	public MostBuyableMainCourseResponse getMostBuyableMainCourse(@RequestBody PeriodRequest request){
+		return metService.getMostBuyableMainCourse(request);
 	}
 	
 }

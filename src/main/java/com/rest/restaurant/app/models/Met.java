@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
-@Entity(name="mets")
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="mets")
@@ -39,7 +38,7 @@ public  class Met {
 	private double price;
 	
 	@ManyToMany(mappedBy = "mets",cascade = CascadeType.REMOVE)
-	private List<Ticket> Tickets;
+	private List<Ticket> tickets;
 
 
 }
