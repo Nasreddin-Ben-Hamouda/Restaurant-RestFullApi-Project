@@ -8,7 +8,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.rest.restaurant.app.services.UserDetailsServiceImpl;
+import com.rest.restaurant.app.services.impl.UserDetailsServiceImpl;
 import com.rest.restaurant.app.util.JwtUtil;
 
 import lombok.AllArgsConstructor;

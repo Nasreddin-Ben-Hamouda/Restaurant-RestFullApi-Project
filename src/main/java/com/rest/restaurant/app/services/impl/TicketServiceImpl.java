@@ -1,4 +1,4 @@
-package com.rest.restaurant.app.services;
+package com.rest.restaurant.app.services.impl;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -13,6 +13,11 @@ import com.rest.restaurant.app.models.Met;
 import com.rest.restaurant.app.models.TableEntity;
 import com.rest.restaurant.app.models.Ticket;
 import com.rest.restaurant.app.repositories.TicketRepositoty;
+import com.rest.restaurant.app.services.ClientService;
+import com.rest.restaurant.app.services.MetService;
+import com.rest.restaurant.app.services.TableService;
+import com.rest.restaurant.app.services.TicketService;
+
 import lombok.AllArgsConstructor;
 
 @Service

@@ -1,4 +1,4 @@
-package com.rest.restaurant.app.services;
+package com.rest.restaurant.app.services.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.rest.restaurant.app.models.TableEntity;
 import com.rest.restaurant.app.repositories.TableRepository;
+import com.rest.restaurant.app.services.TableService;
 
 @Service
 public class TableServiceImpl implements TableService {

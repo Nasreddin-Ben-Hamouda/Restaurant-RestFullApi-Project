@@ -1,4 +1,4 @@
-package com.rest.restaurant.app.services;
+package com.rest.restaurant.app.services.impl;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -12,6 +12,7 @@ import com.rest.restaurant.app.dto.PeriodRequest;
 import com.rest.restaurant.app.dto.MostBuyableMainCourseResponse;
 import com.rest.restaurant.app.models.Met;
 import com.rest.restaurant.app.repositories.MetRepository;
+import com.rest.restaurant.app.services.MetService;
 
 @Service
 public class MetServiceImpl implements MetService {

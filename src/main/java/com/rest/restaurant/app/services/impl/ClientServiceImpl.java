@@ -1,4 +1,4 @@
-package com.rest.restaurant.app.services;
+package com.rest.restaurant.app.services.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.rest.restaurant.app.models.Client;
 import com.rest.restaurant.app.repositories.ClientRepository;
+import com.rest.restaurant.app.services.ClientService;
 
 @Service
 public class ClientServiceImpl implements ClientService {
