@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.rest.restaurant.app.filter.JwtFilter;
-import com.rest.restaurant.app.services.UserDetailsServiceImpl;
+import com.rest.restaurant.app.services.impl.UserDetailsServiceImpl;
 
 import lombok.AllArgsConstructor;
 

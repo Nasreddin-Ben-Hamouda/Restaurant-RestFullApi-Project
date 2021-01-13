@@ -1,4 +1,4 @@
-package com.rest.restaurant.app.services;
+package com.rest.restaurant.app.services.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
