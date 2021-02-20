@@ -21,12 +21,6 @@ public class UserController {
 	private JwtUtil jwtUtil;
     private AuthenticationManager authenticationManager;
    
-
-    @GetMapping("/hello")
-    public String welcome() {
-        return "Welcome to restaurant !!";
-    }
-
     @PostMapping("/login")
     public ResponseEntity<?> userLogin(@RequestBody User user) throws Exception {
     	
